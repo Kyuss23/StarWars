@@ -79,7 +79,7 @@ namespace StarWars
             }
         }
 
-        public Character(int health, int attackPower, int defense, string name)
+        protected Character(int health, int attackPower, int defense, string name)
         {
             Health = health;
             AttackPower = attackPower;
@@ -101,5 +101,10 @@ namespace StarWars
         }
 
         public abstract void SpecialAbility(Character target);
+
+        public override string ToString()
+        {
+            return $"[{GetType().Name}] Name: {Name} | Health: {Health} | Attack Power: {AttackPower} | Defense: {Defense}";
+        }
     }
 }
