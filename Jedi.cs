@@ -41,7 +41,7 @@ namespace StarWars
             } 
 
             int cost = 20;
-            int healing = 25;
+            int baseHeal = 15;
 
             if (cost > _forcePoints)
             {
@@ -50,8 +50,9 @@ namespace StarWars
             }
 
             ForcePoints -= cost;
+            int healing = (int)(baseHeal * (1 + (ForcePoints / 100.0)));
             Health = Math.Min(100, Health + healing);
-            Console.WriteLine($"{Name} uses force healing and gains {healing} HP");
+            Console.WriteLine($"{Name} used force healing and gains {healing} HP");
         }
 
         public override string ToString()
